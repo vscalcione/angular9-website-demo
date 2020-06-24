@@ -32,6 +32,14 @@ import { BlogModule } from './blog/blog.module';
 import { WebsiteBlockComponent } from './website-block/website-block.component';
 import { AboutPageComponent } from './about/about-page/about-page.component';
 import { FeatureBlockComponent } from './about/feature-block/feature-block.component';
+import { ArticleCreateComponent } from './blog/article-create/article-create.component';
+import { ArticleEditComponent } from './blog/article-edit/article-edit.component';
+import { ArticleComponent } from './blog/article/article.component';
+import { BlogPageComponent } from './blog/blog-page/blog-page.component';
+import { PaginationComponent } from './blog/pagination/pagination.component';
+import { PostBlockComponent } from './blog/post-block/post-block.component';
+import { ClientsPageComponent } from './clients/clients-page/clients-page.component';
+import { CompaniesBlockComponent } from './clients/companies-block/companies-block.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +55,14 @@ import { FeatureBlockComponent } from './about/feature-block/feature-block.compo
     WebsiteBlockComponent,
     AboutPageComponent,
     FeatureBlockComponent,
+    ArticleCreateComponent,
+    ArticleEditComponent,
+    ArticleComponent,
+    BlogPageComponent,
+    PaginationComponent,
+    PostBlockComponent,
+    ClientsPageComponent,
+    CompaniesBlockComponent,
   ],
   imports: [
     BrowserModule,
