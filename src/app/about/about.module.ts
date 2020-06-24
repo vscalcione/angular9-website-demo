@@ -9,7 +9,7 @@ import {AboutRoutingModule} from './about-routing.module';
     CommonModule,
     AboutRoutingModule
   ],
-  declarations: [AboutRoutingModule, FeatureBlockComponent]
+  declarations: [AboutPageComponent, FeatureBlockComponent]
 })
 
 export class AboutModule {
