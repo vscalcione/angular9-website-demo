@@ -5,6 +5,7 @@ import { Post } from './blog/post';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
+import { PostBlockComponent } from './blog/post-block/post-block.component';
 import { environment } from './../environments/environment';
 
 const httpOptions = {
@@ -14,8 +15,7 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-
-export class ConfigService{
+export class ConfigService {
 
   config = configuration;
   apiUrl = environment.emailUrl;
@@ -23,24 +23,23 @@ export class ConfigService{
 
   constructor(private http: HttpClient) { }
 
-  private handleError<T>(operation = 'operation', result?: T) {
+  private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
+
       // TODO: send the error to remote logging infrastructure
-      console.log(error); // log to console instead
-
-      // TODO: better job of transforming error for user consuption
+      console.error(error); // log to console instead
+      // TODO: better job of transforming error for user consumption
       console.log(`${operation} failed: ${error.message}`);
-
-      // Let the app keep running by returning an empty result
+      // Let the app keep running by returning an empty result.
       return of(result as T);
     };
   }
 
-  getConfig(){
+  getConfig() {
     return this.config;
   }
 
-  sendMessage(formData: NgForm): Observable<any>{
+  sendMessage(formData: NgForm): Observable<any> {
     return this.http.post<any>(`${this.emailUrl}`, formData, httpOptions).pipe(
       tap(
         message => console.log(message)
@@ -48,6 +47,8 @@ export class ConfigService{
       catchError(this.handleError('Sending Message', []))
     );
   }
+
+
 
   getPosts(): Observable<Post[]> {
     return this.http.get<any>(this.apiUrl).pipe(
@@ -61,12 +62,17 @@ export class ConfigService{
   getSettings(database: string, id?: any): Observable<any[]> {
     let uid = id || null;
     let url: string;
-    uid !== null ? url = `api/${database}/${id}` : url = `api/${database}`;
+    if (uid !== null) {
+      url = `api/${database}/${id}`;
+    } else {
+      url = `api/${database}`;
+    }
+
     return this.http.get<any>(url).pipe(
       tap(
         setting => console.log(setting)
       ),
-      catchError(this.handleError(`get for ${database}`, []))
+      catchError(this.handleError( ` get for ${database}`, []))
     );
   }
 
@@ -88,7 +94,7 @@ export class ConfigService{
     );
   }
 
-  getPostByID(id: number){
+  getPostByID(id: number) {
     return this.http.get<any>(`${this.apiUrl}/${id}`).pipe(
       tap(
         post => console.log(post)
@@ -96,4 +102,5 @@ export class ConfigService{
       catchError(this.handleError('Get Post by ID', []))
     );
   }
+
 }

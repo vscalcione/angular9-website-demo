@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ConfigService } from 'src/app/config.service';
+import { ConfigService } from '../../config.service';
 
 @Component({
   selector: 'app-about-page',
@@ -23,14 +23,14 @@ export class AboutPageComponent implements OnInit {
     description: string
   }[];
 
-  constructor(private config: ConfigService) {}
+  constructor(private config: ConfigService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getPageData('pages', 'intro');
     this.getBlockData('features');
   }
 
-  getPageData(database: string, id?: string){
+  getPageData(database: string, id?: string) {
     this.config.getSettings(database, id).subscribe(
       data => {
         this.intro = data;
@@ -39,8 +39,8 @@ export class AboutPageComponent implements OnInit {
     );
   }
 
-  getBlockData(database: string){
-    this.config.getSettings(database).subscribe(
+  getBlockData(database: string ) {
+    this.config.getSettings(database ).subscribe(
       data => {
         this.features = data;
         console.log(this.features);
