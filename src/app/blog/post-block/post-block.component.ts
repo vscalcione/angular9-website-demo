@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Input} from '@angular/core';
+import {Post} from '../Post';
+
 
 @Component({
   selector: 'app-post-block',
@@ -6,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-block.component.css']
 })
 export class PostBlockComponent implements OnInit {
-
+  @Input()  post: Post;
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
 }
