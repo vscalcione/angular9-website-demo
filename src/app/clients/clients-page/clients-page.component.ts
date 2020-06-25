@@ -22,7 +22,6 @@ export class ClientsPageComponent implements OnInit {
   ngOnInit() {
     this.getPageData('pages', 'clients');
     this.getBlockData('companies');
-
   }
 
   getPageData(database: string, id?: string) {

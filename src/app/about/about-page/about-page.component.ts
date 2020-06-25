@@ -25,7 +25,7 @@ export class AboutPageComponent implements OnInit {
 
   constructor(private config: ConfigService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.getPageData('pages', 'intro');
     this.getBlockData('features');
   }

@@ -19,7 +19,7 @@ export class ArticleComponent implements OnInit {
     private location: Location
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     const id = +this.route.snapshot.paramMap.get('id');
     this.getPostById(id);
     // this.post = this.getPostById(id);

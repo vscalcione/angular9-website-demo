@@ -24,13 +24,13 @@ export class ArticleCreateComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.postCreateForm = this.fb.group({
       // id: [null, Validators.required],
-      'title': [null, Validators.required],
-      'author': [null, Validators.required],
-      'publishdate': [Date.now(), Validators.required],
-      'excert': [null, Validators.required],
+      title: [null, Validators.required],
+      author: [null, Validators.required],
+      publishdate: [Date.now(), Validators.required],
+      excert: [null, Validators.required],
       image: [null, Validators.required]
     });
   }

@@ -24,12 +24,12 @@ export class ArticleEditComponent implements OnInit {
 
   ngOnInit() {
     this.postEditForm = this.fb.group({
-      'id' : [null, Validators.required],
-      'title' : [null, Validators.required],
-      'author' : [null, Validators.required],
-      'publishdate' : [null, Validators.required],
-      'excert' : [null, Validators.required],
-      'image' : [null, Validators.required],
+      id : [null, Validators.required],
+      title : [null, Validators.required],
+      author : [null, Validators.required],
+      publishdate : [null, Validators.required],
+      excert : [null, Validators.required],
+      image : [null, Validators.required],
     });
     this.id = this.route.snapshot.params['id'] || null ;
     if (this.id) {

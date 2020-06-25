@@ -16,9 +16,11 @@ export class FooterComponent implements OnInit {
 
   constructor(private config: ConfigService) { }
 
-  ngOnInit = () => this.footer = this.getFooter();
+  ngOnInit() {
+    this.footer = this.getFooter();
+  }
 
-  getFooter = () => {
+  getFooter() {
     return this.config.getConfig().footer;
   }
 }

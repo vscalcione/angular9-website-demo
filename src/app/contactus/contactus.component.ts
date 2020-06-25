@@ -19,10 +19,10 @@ export class ContactusComponent implements OnInit {
 
   ngOnInit() {
     this.contactusForm = this.fb.group({
-      'firstName': [null, Validators.required],
-      'lastName': [null, Validators.required],
-      'email': [null, Validators.required, Validators.email],
-      'message': [null, Validators.required]
+      firstName: [null, Validators.required],
+      lastName: [null, Validators.required],
+      email: [null, Validators.required, Validators.email],
+      message: [null, Validators.required]
     });
 
     this.sending = false;
@@ -41,6 +41,11 @@ export class ContactusComponent implements OnInit {
     }, 100);
   }
 
-  cancel = () => this.cancelForm();
-  cancelForm = () => this.router.navigate([{outles: {popup: null}}]);
+  cancel() {
+    this.cancelForm();
+  }
+
+  cancelForm() {
+    this.router.navigate([{outles: {popup: null}}]);
+  }
 }
